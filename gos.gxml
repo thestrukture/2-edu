@@ -5,8 +5,8 @@
 </struct><struct name="Feed">
 //Add some attrs
 
-</struct></header><methods><method name="IsActive" var="url string, lookup string" limit="" object="" autoface="" keep-local="" testi="" testo="" m="" return="string">
+</struct></header><methods><method name="IsActive" var="url, lookup" limit="" object="" autoface="" keep-local="" testi="" testo="" m="" return="string">
     return "active"
-</method><method name="GetState" var="r *http.Request" limit="" object="" autoface="" keep-local="" testi="" testo="" m="" return="PageComp">
+</method><method name="GetState" var="" limit="" object="" autoface="" keep-local="" testi="" testo="" m="" return="PageComp">
     return PageComp{ "/" }
 </method></methods><timers></timers><templates><template name="PageStart" tmpl="core/PageStart" bundle="core" struct=""><ForcePath>false</ForcePath></template><template name="PageEnd" tmpl="core/PageEnd" bundle="core" struct=""><ForcePath>false</ForcePath></template><template name="NavBar" tmpl="ui/NavBar" bundle="ui" struct=""><ForcePath>false</ForcePath></template><template name="Feed" tmpl="ui/Feed" bundle="ui" struct=""><ForcePath>false</ForcePath></template><template name="URLTool" tmpl="ui/URLTool" bundle="ui" struct=""><ForcePath>false</ForcePath></template></templates><endpoints></endpoints><FolderRoot></FolderRoot><Name></Name><Prod>false</Prod><PackagePath></PackagePath></gos>

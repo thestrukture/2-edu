@@ -1,10 +1,10 @@
 <gos> 
  
-<method name="IsActive" var="url string, lookup string" return="string"  >
+<method name="IsActive" var="url, lookup" return="string"  >
     return "active"
 </method>
 
-<method name="GetState" var="r *http.Request" return="PageComp"  >
+<method name="GetState" var="" return="PageComp"  >
     return PageComp{ "/" }
 </method>
 
