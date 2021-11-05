@@ -1,0 +1,12 @@
+<gos gateway="" https-cert="" https-key=""><port>8080</port><domain></domain><trace></trace><output>application.go</output><error>/your-500-page</error><not_found>/your-404-page</not_found><deploy>webapp</deploy><main>&#x9;&#xA;&#x9;//psss go code here : func main()&#xA;&#x9;</main><shutdown></shutdown><WriteOut>false</WriteOut><export></export><key>a very very very very secret key</key><session></session><templatePath></templatePath><webroot></webroot><package>if-package-is-library</package><web></web><tmpl></tmpl><init></init><header><struct name="PageComp">
+//Add some attrs
+ State string
+ SignedIn bool
+</struct><struct name="Feed">
+//Add some attrs
+
+</struct></header><methods><method name="IsActive" var="url string, lookup string" limit="" object="" autoface="" keep-local="" testi="" testo="" m="" return="string">
+    return "active"
+</method><method name="GetState" var="r *http.Request" limit="" object="" autoface="" keep-local="" testi="" testo="" m="" return="PageComp">
+    return PageComp{ "/" }
+</method></methods><timers></timers><templates><template name="PageStart" tmpl="core/PageStart" bundle="core" struct=""><ForcePath>false</ForcePath></template><template name="PageEnd" tmpl="core/PageEnd" bundle="core" struct=""><ForcePath>false</ForcePath></template><template name="NavBar" tmpl="ui/NavBar" bundle="ui" struct=""><ForcePath>false</ForcePath></template><template name="Feed" tmpl="ui/Feed" bundle="ui" struct=""><ForcePath>false</ForcePath></template><template name="URLTool" tmpl="ui/URLTool" bundle="ui" struct=""><ForcePath>false</ForcePath></template></templates><endpoints></endpoints><FolderRoot></FolderRoot><Name></Name><Prod>false</Prod><PackagePath></PackagePath></gos>
