@@ -5,7 +5,7 @@
 </method>
 
 <method name="GetState" var="" return="PageComp"  >
-    return PageComp{ "/" }
+    return PageComp{ State : "/" }
 </method>
 
  </gos> 
