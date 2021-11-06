@@ -11,4 +11,9 @@
 
 </struct>
 
+<struct name="Post" >
+//Add some attrs
+
+</struct>
+
  </gos> 

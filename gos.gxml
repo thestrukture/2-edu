@@ -5,6 +5,9 @@
 </struct><struct name="FeedGroup">
 //Add some attrs
 
+</struct><struct name="Post">
+//Add some attrs
+
 </struct></header><methods><method name="IsActive" var="url, lookup" limit="" object="" autoface="" keep-local="" testi="" testo="" m="" return="string">
     if strings.Contains(url.(string), lookup.(string)) {
         
