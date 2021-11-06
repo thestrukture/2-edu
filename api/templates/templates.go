@@ -31,10 +31,6 @@ var FuncStored = StoreNetfn()
 // path, relative to your web root.
 func LoadPage(title string) (*gosweb.Page, error) {
 
-	if lPage, ok := WebCache.Get(title); ok {
-		return &lPage, nil
-	}
-
 	var nPage = gosweb.Page{}
 	if roottitle := (title == "/"); roottitle {
 		webbase := "web/"

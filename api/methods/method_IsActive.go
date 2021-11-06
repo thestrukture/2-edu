@@ -2,12 +2,23 @@
 // DO NOT EDIT!!
 package methods
 
-import "strings"
+import (
+	"log"
+	"strings"
+)
 
 //
 func IsActive(args ...interface{}) string {
 	url := args[0]
 	lookup := args[1]
+
+	defer func() {
+		if n := recover(); n != nil {
+			log.Println("Method IsActive failed")
+			log.Println("Reason : ", n)
+
+		}
+	}()
 
 	if strings.Contains(url.(string), lookup.(string)) {
 

@@ -4,6 +4,7 @@ package templates
 
 import (
 	"2-edu/api/assets"
+	"2-edu/types"
 	"bytes"
 	"encoding/json"
 	"fmt"
@@ -11,14 +12,13 @@ import (
 	"log"
 	"text/template"
 
-	gosweb "github.com/cheikhshift/gos/web"
 	"github.com/fatih/color"
 )
 
 //
 // Renders HTML of template
-// PageEnd with struct gosweb.NoStruct
-func PageEnd(d gosweb.NoStruct) string {
+// PageEnd with struct types.PageComp
+func PageEnd(d types.PageComp) string {
 	return netbPageEnd(d)
 }
 
@@ -39,7 +39,7 @@ var templateIDPageEnd = "tmpl/core/PageEnd.tmpl"
 func netPageEnd(args ...interface{}) string {
 
 	localid := templateIDPageEnd
-	var d *gosweb.NoStruct
+	var d *types.PageComp
 	defer templateFNPageEnd(localid, d)
 	if len(args) > 0 {
 		jso := args[0].(string)
@@ -49,7 +49,7 @@ func netPageEnd(args ...interface{}) string {
 			return err.Error()
 		}
 	} else {
-		d = &gosweb.NoStruct{}
+		d = &types.PageComp{}
 	}
 
 	output := new(bytes.Buffer)
@@ -84,14 +84,14 @@ func netPageEnd(args ...interface{}) string {
 }
 
 // alias of template render function.
-func bPageEnd(d gosweb.NoStruct) string {
+func bPageEnd(d types.PageComp) string {
 	return netbPageEnd(d)
 }
 
 //
 
 // template render function
-func netbPageEnd(d gosweb.NoStruct) string {
+func netbPageEnd(d types.PageComp) string {
 	localid := templateIDPageEnd
 	defer templateFNPageEnd(localid, d)
 	output := new(bytes.Buffer)
@@ -116,7 +116,7 @@ func netbPageEnd(d gosweb.NoStruct) string {
 	}
 	var outps = output.String()
 	var outpescaped = html.UnescapeString(outps)
-	d = gosweb.NoStruct{}
+	d = types.PageComp{}
 	output.Reset()
 	output = nil
 	return outpescaped
@@ -124,7 +124,7 @@ func netbPageEnd(d gosweb.NoStruct) string {
 
 // Unmarshal a json string to the template's struct
 // type
-func netcPageEnd(args ...interface{}) (d gosweb.NoStruct) {
+func netcPageEnd(args ...interface{}) (d types.PageComp) {
 	if len(args) > 0 {
 		var jsonBlob = []byte(args[0].(string))
 		err := json.Unmarshal(jsonBlob, &d)
@@ -133,13 +133,13 @@ func netcPageEnd(args ...interface{}) (d gosweb.NoStruct) {
 			return
 		}
 	} else {
-		d = gosweb.NoStruct{}
+		d = types.PageComp{}
 	}
 	return
 }
 
 // Create a struct variable of template.
-func cPageEnd(args ...interface{}) (d gosweb.NoStruct) {
+func cPageEnd(args ...interface{}) (d types.PageComp) {
 	if len(args) > 0 {
 		d = netcPageEnd(args[0])
 	} else {

@@ -13,7 +13,7 @@ import (
 	"text/template"
 )
 
-var Prod = true
+var Prod = false
 
 // Scans template string and uses data provided from request
 // to find the line causing the panic.

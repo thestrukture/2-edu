@@ -4,6 +4,7 @@ package templates
 
 import (
 	"2-edu/api/assets"
+	"2-edu/types"
 	"bytes"
 	"encoding/json"
 	"fmt"
@@ -11,14 +12,13 @@ import (
 	"log"
 	"text/template"
 
-	gosweb "github.com/cheikhshift/gos/web"
 	"github.com/fatih/color"
 )
 
 //
 // Renders HTML of template
-// URLTool with struct gosweb.NoStruct
-func URLTool(d gosweb.NoStruct) string {
+// URLTool with struct types.PageComp
+func URLTool(d types.PageComp) string {
 	return netbURLTool(d)
 }
 
@@ -39,7 +39,7 @@ var templateIDURLTool = "tmpl/ui/URLTool.tmpl"
 func netURLTool(args ...interface{}) string {
 
 	localid := templateIDURLTool
-	var d *gosweb.NoStruct
+	var d *types.PageComp
 	defer templateFNURLTool(localid, d)
 	if len(args) > 0 {
 		jso := args[0].(string)
@@ -49,7 +49,7 @@ func netURLTool(args ...interface{}) string {
 			return err.Error()
 		}
 	} else {
-		d = &gosweb.NoStruct{}
+		d = &types.PageComp{}
 	}
 
 	output := new(bytes.Buffer)
@@ -84,14 +84,14 @@ func netURLTool(args ...interface{}) string {
 }
 
 // alias of template render function.
-func bURLTool(d gosweb.NoStruct) string {
+func bURLTool(d types.PageComp) string {
 	return netbURLTool(d)
 }
 
 //
 
 // template render function
-func netbURLTool(d gosweb.NoStruct) string {
+func netbURLTool(d types.PageComp) string {
 	localid := templateIDURLTool
 	defer templateFNURLTool(localid, d)
 	output := new(bytes.Buffer)
@@ -116,7 +116,7 @@ func netbURLTool(d gosweb.NoStruct) string {
 	}
 	var outps = output.String()
 	var outpescaped = html.UnescapeString(outps)
-	d = gosweb.NoStruct{}
+	d = types.PageComp{}
 	output.Reset()
 	output = nil
 	return outpescaped
@@ -124,7 +124,7 @@ func netbURLTool(d gosweb.NoStruct) string {
 
 // Unmarshal a json string to the template's struct
 // type
-func netcURLTool(args ...interface{}) (d gosweb.NoStruct) {
+func netcURLTool(args ...interface{}) (d types.PageComp) {
 	if len(args) > 0 {
 		var jsonBlob = []byte(args[0].(string))
 		err := json.Unmarshal(jsonBlob, &d)
@@ -133,13 +133,13 @@ func netcURLTool(args ...interface{}) (d gosweb.NoStruct) {
 			return
 		}
 	} else {
-		d = gosweb.NoStruct{}
+		d = types.PageComp{}
 	}
 	return
 }
 
 // Create a struct variable of template.
-func cURLTool(args ...interface{}) (d gosweb.NoStruct) {
+func cURLTool(args ...interface{}) (d types.PageComp) {
 	if len(args) > 0 {
 		d = netcURLTool(args[0])
 	} else {

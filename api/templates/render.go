@@ -12,10 +12,11 @@ import (
 
 	gosweb "github.com/cheikhshift/gos/web"
 	"github.com/fatih/color"
+	"github.com/opentracing/opentracing-go"
 )
 
 // Renders an HTML response with variables provided.
-func RenderTemplate(w http.ResponseWriter, p *gosweb.Page) {
+func RenderTemplate(w http.ResponseWriter, p *gosweb.Page, span opentracing.Span) {
 	defer func() {
 		if n := recover(); n != nil {
 			color.Red(fmt.Sprintf("Error loading template in path : web%s.tmpl reason : %s", p.R.URL.Path, n))
@@ -35,11 +36,25 @@ func RenderTemplate(w http.ResponseWriter, p *gosweb.Page) {
 			} else {
 				pag.R = p.R
 				pag.Session = p.Session
-				RenderTemplate(w, pag) ///your-500-page"
+				RenderTemplate(w, pag, span) ///your-500-page"
 
 			}
 		}
 	}()
+
+	var sp opentracing.Span
+	opName := fmt.Sprintf("Building template %s%s", p.R.URL.Path, ".tmpl")
+
+	if true {
+		carrier := opentracing.HTTPHeadersCarrier(p.R.Header)
+		wireContext, err := opentracing.GlobalTracer().Extract(opentracing.HTTPHeaders, carrier)
+		if err != nil {
+			sp = opentracing.StartSpan(opName)
+		} else {
+			sp = opentracing.StartSpan(opName, opentracing.ChildOf(wireContext))
+		}
+	}
+	defer sp.Finish()
 
 	if _, ok := templateCache.Get(p.R.URL.Path); !ok || !Prod {
 		var tmpstr = string(p.Body)
@@ -69,7 +84,7 @@ func RenderTemplate(w http.ResponseWriter, p *gosweb.Page) {
 		if pag.IsResource {
 			w.Write(pag.Body)
 		} else {
-			RenderTemplate(w, pag)
+			RenderTemplate(w, pag, span)
 
 		}
 		return

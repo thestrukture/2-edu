@@ -3,9 +3,11 @@
 package main
 
 import (
+	"n-educate/api/tracer"
+	_ "net/http/pprof"
+
 	"2-edu/api/assets"
 	"2-edu/api/handlers"
-	sessionStore "2-edu/api/sessions"
 	"fmt"
 	"log"
 	"net/http"
@@ -13,20 +15,13 @@ import (
 	"os/signal"
 
 	assetfs "github.com/elazarl/go-bindata-assetfs"
-	"github.com/gorilla/sessions"
 )
 
 func main() {
 	fmt.Fprintf(os.Stdout, "%v\n", os.Getpid())
 
 	LaunchServer()
-	sessionStore.Store.Options = &sessions.Options{
-		Path:     "/",
-		MaxAge:   86400 * 7,
-		HttpOnly: true,
-		Secure:   true,
-		Domain:   "",
-	}
+	tracer.LoadTraceServer()
 
 	port := ":80"
 	if envport := os.ExpandEnv("$PORT"); envport != "" {

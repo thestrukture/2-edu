@@ -4,6 +4,7 @@ package templates
 
 import (
 	"2-edu/api/assets"
+	"2-edu/types"
 	"bytes"
 	"encoding/json"
 	"fmt"
@@ -11,14 +12,13 @@ import (
 	"log"
 	"text/template"
 
-	gosweb "github.com/cheikhshift/gos/web"
 	"github.com/fatih/color"
 )
 
 //
 // Renders HTML of template
-// NavBar with struct gosweb.NoStruct
-func NavBar(d gosweb.NoStruct) string {
+// NavBar with struct types.PageComp
+func NavBar(d types.PageComp) string {
 	return netbNavBar(d)
 }
 
@@ -39,7 +39,7 @@ var templateIDNavBar = "tmpl/ui/NavBar.tmpl"
 func netNavBar(args ...interface{}) string {
 
 	localid := templateIDNavBar
-	var d *gosweb.NoStruct
+	var d *types.PageComp
 	defer templateFNNavBar(localid, d)
 	if len(args) > 0 {
 		jso := args[0].(string)
@@ -49,7 +49,7 @@ func netNavBar(args ...interface{}) string {
 			return err.Error()
 		}
 	} else {
-		d = &gosweb.NoStruct{}
+		d = &types.PageComp{}
 	}
 
 	output := new(bytes.Buffer)
@@ -84,14 +84,14 @@ func netNavBar(args ...interface{}) string {
 }
 
 // alias of template render function.
-func bNavBar(d gosweb.NoStruct) string {
+func bNavBar(d types.PageComp) string {
 	return netbNavBar(d)
 }
 
 //
 
 // template render function
-func netbNavBar(d gosweb.NoStruct) string {
+func netbNavBar(d types.PageComp) string {
 	localid := templateIDNavBar
 	defer templateFNNavBar(localid, d)
 	output := new(bytes.Buffer)
@@ -116,7 +116,7 @@ func netbNavBar(d gosweb.NoStruct) string {
 	}
 	var outps = output.String()
 	var outpescaped = html.UnescapeString(outps)
-	d = gosweb.NoStruct{}
+	d = types.PageComp{}
 	output.Reset()
 	output = nil
 	return outpescaped
@@ -124,7 +124,7 @@ func netbNavBar(d gosweb.NoStruct) string {
 
 // Unmarshal a json string to the template's struct
 // type
-func netcNavBar(args ...interface{}) (d gosweb.NoStruct) {
+func netcNavBar(args ...interface{}) (d types.PageComp) {
 	if len(args) > 0 {
 		var jsonBlob = []byte(args[0].(string))
 		err := json.Unmarshal(jsonBlob, &d)
@@ -133,13 +133,13 @@ func netcNavBar(args ...interface{}) (d gosweb.NoStruct) {
 			return
 		}
 	} else {
-		d = gosweb.NoStruct{}
+		d = types.PageComp{}
 	}
 	return
 }
 
 // Create a struct variable of template.
-func cNavBar(args ...interface{}) (d gosweb.NoStruct) {
+func cNavBar(args ...interface{}) (d types.PageComp) {
 	if len(args) > 0 {
 		d = netcNavBar(args[0])
 	} else {

@@ -2,10 +2,21 @@
 // DO NOT EDIT!!
 package methods
 
-import "2-edu/types"
+import (
+	"2-edu/types"
+	"log"
+)
 
 //
 func GetState(args ...interface{}) types.PageComp {
+
+	defer func() {
+		if n := recover(); n != nil {
+			log.Println("Method GetState failed")
+			log.Println("Reason : ", n)
+
+		}
+	}()
 
 	return types.PageComp{State: "/"}
 

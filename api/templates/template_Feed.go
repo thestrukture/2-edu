@@ -4,6 +4,7 @@ package templates
 
 import (
 	"2-edu/api/assets"
+	"2-edu/types"
 	"bytes"
 	"encoding/json"
 	"fmt"
@@ -11,14 +12,13 @@ import (
 	"log"
 	"text/template"
 
-	gosweb "github.com/cheikhshift/gos/web"
 	"github.com/fatih/color"
 )
 
 //
 // Renders HTML of template
-// Feed with struct gosweb.NoStruct
-func Feed(d gosweb.NoStruct) string {
+// Feed with struct types.PageComp
+func Feed(d types.PageComp) string {
 	return netbFeed(d)
 }
 
@@ -39,7 +39,7 @@ var templateIDFeed = "tmpl/ui/Feed.tmpl"
 func netFeed(args ...interface{}) string {
 
 	localid := templateIDFeed
-	var d *gosweb.NoStruct
+	var d *types.PageComp
 	defer templateFNFeed(localid, d)
 	if len(args) > 0 {
 		jso := args[0].(string)
@@ -49,7 +49,7 @@ func netFeed(args ...interface{}) string {
 			return err.Error()
 		}
 	} else {
-		d = &gosweb.NoStruct{}
+		d = &types.PageComp{}
 	}
 
 	output := new(bytes.Buffer)
@@ -84,14 +84,14 @@ func netFeed(args ...interface{}) string {
 }
 
 // alias of template render function.
-func bFeed(d gosweb.NoStruct) string {
+func bFeed(d types.PageComp) string {
 	return netbFeed(d)
 }
 
 //
 
 // template render function
-func netbFeed(d gosweb.NoStruct) string {
+func netbFeed(d types.PageComp) string {
 	localid := templateIDFeed
 	defer templateFNFeed(localid, d)
 	output := new(bytes.Buffer)
@@ -116,7 +116,7 @@ func netbFeed(d gosweb.NoStruct) string {
 	}
 	var outps = output.String()
 	var outpescaped = html.UnescapeString(outps)
-	d = gosweb.NoStruct{}
+	d = types.PageComp{}
 	output.Reset()
 	output = nil
 	return outpescaped
@@ -124,7 +124,7 @@ func netbFeed(d gosweb.NoStruct) string {
 
 // Unmarshal a json string to the template's struct
 // type
-func netcFeed(args ...interface{}) (d gosweb.NoStruct) {
+func netcFeed(args ...interface{}) (d types.PageComp) {
 	if len(args) > 0 {
 		var jsonBlob = []byte(args[0].(string))
 		err := json.Unmarshal(jsonBlob, &d)
@@ -133,13 +133,13 @@ func netcFeed(args ...interface{}) (d gosweb.NoStruct) {
 			return
 		}
 	} else {
-		d = gosweb.NoStruct{}
+		d = types.PageComp{}
 	}
 	return
 }
 
 // Create a struct variable of template.
-func cFeed(args ...interface{}) (d gosweb.NoStruct) {
+func cFeed(args ...interface{}) (d types.PageComp) {
 	if len(args) > 0 {
 		d = netcFeed(args[0])
 	} else {

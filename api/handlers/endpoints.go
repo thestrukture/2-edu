@@ -8,6 +8,7 @@ import (
 
 	gosweb "github.com/cheikhshift/gos/web"
 	"github.com/gorilla/sessions"
+	"github.com/opentracing/opentracing-go"
 
 	sessionStore "2-edu/api/sessions"
 )
@@ -19,7 +20,7 @@ func mResponse(v interface{}) string {
 	return string(data)
 }
 
-func ApiAttempt(w http.ResponseWriter, r *http.Request) (callmet bool) {
+func ApiAttempt(w http.ResponseWriter, r *http.Request, span opentracing.Span) (callmet bool) {
 	var response string
 	var session *sessions.Session
 
