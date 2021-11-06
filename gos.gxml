@@ -2,7 +2,7 @@
 //Add some attrs
  State string
  SignedIn bool
-</struct><struct name="Feed">
+</struct><struct name="FeedGroup">
 //Add some attrs
 
 </struct></header><methods><method name="IsActive" var="url, lookup" limit="" object="" autoface="" keep-local="" testi="" testo="" m="" return="string">

@@ -6,7 +6,7 @@
  SignedIn bool
 </struct>
 
-<struct name="Feed" >
+<struct name="FeedGroup" >
 //Add some attrs
 
 </struct>
