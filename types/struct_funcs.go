@@ -32,10 +32,10 @@ func CastPageComp(args ...interface{}) *PageComp {
 func NewPageComp() *PageComp { return &PageComp{} }
 
 // Asserts first argument, a map, as struct
-// Feed. This function is used with template functionality.
-func CastFeed(args ...interface{}) *Feed {
+// FeedGroup. This function is used with template functionality.
+func CastFeedGroup(args ...interface{}) *FeedGroup {
 
-	s := Feed{}
+	s := FeedGroup{}
 	mapp := args[0].(db.O)
 	if _, ok := mapp["_id"]; ok {
 		mapp["Id"] = mapp["_id"]
@@ -50,5 +50,5 @@ func CastFeed(args ...interface{}) *Feed {
 	return &s
 }
 
-// Create a new Feed struct and return the pointer.
-func NewFeed() *Feed { return &Feed{} }
+// Create a new FeedGroup struct and return the pointer.
+func NewFeedGroup() *FeedGroup { return &FeedGroup{} }

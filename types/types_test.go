@@ -15,3 +15,8 @@ func TestFeed(t *testing.T) {
 
 	t.Error("Test for data type Feed not implemented!!")
 }
+
+func TestFeedGroup(t *testing.T) {
+
+	t.Error("Test for data type FeedGroup not implemented!!")
+}

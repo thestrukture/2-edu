@@ -7,7 +7,7 @@ type PageComp struct {
 	State    string
 	SignedIn bool
 }
-type Feed struct {
+type FeedGroup struct {
 	//Add some attrs
 
 }
