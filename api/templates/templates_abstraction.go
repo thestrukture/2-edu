@@ -2,7 +2,17 @@
 // DO NOT EDIT!!
 package templates
 
-import "2-edu/api/assets"
+import (
+	"2-edu/api/assets"
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"html"
+	"html/template"
+	"log"
+
+	"github.com/fatih/color"
+)
 
 // Unmarshal JSON to specified pointer interface.
 func parseJSON(str string, v interface{}) error {

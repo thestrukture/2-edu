@@ -2,16 +2,15 @@
 // DO NOT EDIT!!
 package handlers
 
-import gosweb "github.com/cheikhshift/gos/web"
+import (
+	"encoding/json"
+	"net/http"
 
-import sessionStore "2-edu/api/sessions"
+	gosweb "github.com/cheikhshift/gos/web"
+	"github.com/gorilla/sessions"
 
-import templates "2-edu/api/templates"
-
-import methods "2-edu/api/methods"
-
-import types "2-edu/types"
-import "2-edu/api/globals"
+	sessionStore "2-edu/api/sessions"
+)
 
 var WebCache = gosweb.NewCache()
 

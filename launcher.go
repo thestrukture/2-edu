@@ -2,10 +2,6 @@
 // DO NOT EDIT!!
 package main
 
-import "2-edu/api/globals"
-import "2-edu/api/methods"
-import "2-edu/api/templates"
-
 func LaunchServer() {
 
 	//psss go code here : func main()

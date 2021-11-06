@@ -2,10 +2,16 @@
 // DO NOT EDIT!!
 package templates
 
-import gosweb "github.com/cheikhshift/gos/web"
-
-import sessionStore "2-edu/api/sessions"
-import "2-edu/api/assets"
+import (
+	"2-edu/api/assets"
+	sessionStore "2-edu/api/sessions"
+	"bytes"
+	"fmt"
+	"html/template"
+	"log"
+	"net/http"
+	"strings"
+)
 
 var Prod = true
 

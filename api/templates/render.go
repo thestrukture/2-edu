@@ -2,7 +2,17 @@
 // DO NOT EDIT!!
 package templates
 
-import gosweb "github.com/cheikhshift/gos/web"
+import (
+	"bytes"
+	"fmt"
+	"html"
+	"html/template"
+	"log"
+	"net/http"
+
+	gosweb "github.com/cheikhshift/gos/web"
+	"github.com/fatih/color"
+)
 
 // Renders an HTML response with variables provided.
 func RenderTemplate(w http.ResponseWriter, p *gosweb.Page) {

@@ -2,10 +2,17 @@
 // DO NOT EDIT!!
 package handlers
 
-import gosweb "github.com/cheikhshift/gos/web"
-import templates "2-edu/api/templates"
-import sessionStore "2-edu/api/sessions"
-import "2-edu/api/globals"
+import (
+	templates "2-edu/api/templates"
+	"log"
+	"net/http"
+	"strings"
+
+	gosweb "github.com/cheikhshift/gos/web"
+	"github.com/gorilla/sessions"
+
+	sessionStore "2-edu/api/sessions"
+)
 
 // Access you .gxml's end tags with
 // this http.HandlerFunc.

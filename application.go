@@ -3,28 +3,17 @@
 package main
 
 import (
-	gosweb "github.com/cheikhshift/gos/web"
-
 	"2-edu/api/assets"
 	"2-edu/api/handlers"
 	sessionStore "2-edu/api/sessions"
-	"2-edu/types"
-	"bytes"
-	"context"
-	"encoding/json"
 	"fmt"
-	"github.com/cheikhshift/db"
-	"github.com/elazarl/go-bindata-assetfs"
-	"github.com/fatih/color"
-	"github.com/gorilla/sessions"
-	"html"
-	"html/template"
 	"log"
 	"net/http"
 	"os"
 	"os/signal"
-	"strings"
-	"time"
+
+	assetfs "github.com/elazarl/go-bindata-assetfs"
+	"github.com/gorilla/sessions"
 )
 
 func main() {

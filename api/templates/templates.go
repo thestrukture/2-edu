@@ -2,14 +2,17 @@
 // DO NOT EDIT!!
 package templates
 
-import gosweb "github.com/cheikhshift/gos/web"
+import (
+	"fmt"
+	"html/template"
+	"strings"
 
-import methods "2-edu/api/methods"
-import exported "2-edu/api/exported"
-import "2-edu/api/assets"
+	gosweb "github.com/cheikhshift/gos/web"
 
-import "2-edu/types"
-import "2-edu/api/globals"
+	"2-edu/api/assets"
+	methods "2-edu/api/methods"
+	"2-edu/types"
+)
 
 var TemplateFuncStore template.FuncMap
 

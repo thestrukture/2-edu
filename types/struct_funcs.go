@@ -2,6 +2,13 @@
 // DO NOT EDIT!!
 package types
 
+import (
+	"encoding/json"
+	"log"
+
+	"github.com/cheikhshift/db"
+)
+
 // Asserts first argument, a map, as struct
 // PageComp. This function is used with template functionality.
 func CastPageComp(args ...interface{}) *PageComp {

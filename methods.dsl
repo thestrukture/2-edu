@@ -1,7 +1,7 @@
 <gos> 
  
 <method name="IsActive" var="url, lookup" return="string"  >
-    return "active"
+    return strings.Contains(url.(string), lookup.(string))
 </method>
 
 <method name="GetState" var="" return="PageComp"  >
