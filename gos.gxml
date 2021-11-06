@@ -1,4 +1,4 @@
-<gos gateway="" https-cert="" https-key=""><port>8080</port><domain></domain><trace></trace><output>application.go</output><error>/your-500-page</error><not_found>/your-404-page</not_found><deploy>webapp</deploy><main>&#x9;&#xA;&#x9;//psss go code here : func main()&#xA;&#x9;</main><shutdown></shutdown><WriteOut>false</WriteOut><export></export><key>a very very very very secret key</key><session></session><templatePath></templatePath><webroot></webroot><package>if-package-is-library</package><web></web><tmpl></tmpl><init></init><header><struct name="PageComp">
+<gos gateway="" https-cert="" https-key=""><port>80</port><domain></domain><trace></trace><output>application.go</output><error>/your-500-page</error><not_found>/your-404-page</not_found><deploy>webapp</deploy><main>&#x9;&#xA;&#x9;//psss go code here : func main()&#xA;&#x9;</main><shutdown></shutdown><WriteOut>false</WriteOut><export></export><key>a very very very very secret key</key><session></session><templatePath></templatePath><webroot></webroot><package>if-package-is-library</package><web></web><tmpl></tmpl><init></init><header><struct name="PageComp">
 //Add some attrs
  State string
  SignedIn bool

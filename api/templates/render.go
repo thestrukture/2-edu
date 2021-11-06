@@ -6,9 +6,9 @@ import (
 	"bytes"
 	"fmt"
 	"html"
-	"html/template"
 	"log"
 	"net/http"
+	"text/template"
 
 	gosweb "github.com/cheikhshift/gos/web"
 	"github.com/fatih/color"

@@ -4,8 +4,8 @@ package templates
 
 import (
 	"fmt"
-	"html/template"
 	"strings"
+	"text/template"
 
 	gosweb "github.com/cheikhshift/gos/web"
 

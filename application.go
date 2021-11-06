@@ -28,7 +28,7 @@ func main() {
 		Domain:   "",
 	}
 
-	port := ":8080"
+	port := ":80"
 	if envport := os.ExpandEnv("$PORT"); envport != "" {
 		port = fmt.Sprintf(":%s", envport)
 	}

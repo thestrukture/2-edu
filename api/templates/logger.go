@@ -7,10 +7,10 @@ import (
 	sessionStore "2-edu/api/sessions"
 	"bytes"
 	"fmt"
-	"html/template"
 	"log"
 	"net/http"
 	"strings"
+	"text/template"
 )
 
 var Prod = true

@@ -8,8 +8,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"html"
-	"html/template"
 	"log"
+	"text/template"
 
 	gosweb "github.com/cheikhshift/gos/web"
 	"github.com/fatih/color"
