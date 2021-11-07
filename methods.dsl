@@ -9,8 +9,11 @@
     return ""
 </method>
 
-<method name="GetState" var="" return="PageComp"  >
-    return PageComp{ State : "/" }
+<method name="GetState" var="request" return="PageComp"  >
+
+    r := request.(*http.Request)
+    
+    return PageComp{ State : r.RequestURI }
 </method>
 
  </gos> 

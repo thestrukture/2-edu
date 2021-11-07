@@ -2,14 +2,15 @@
   <a class='{{IsActive .State "/"}} item' href="/">
     Home
   </a>
-  <a class="item">
+  <a class='item {{ IsActive .State "/academy" }}' href="/academy">
       Academy
   </a>
   <a class="item">
       SEO Analyzer
   </a>
-  <a class="item" href="/url-short">URL Shortener</a>
-  
+  <a class='item {{ IsActive .State "/url-short" }}' href="/url-short">URL Shortener</a>
+  <a class='item {{ IsActive .State "/g-tools" }}' href="/g-tools">Growth Tools </a>
+  <a class='item {{ IsActive .State "/forum" }}' >Forum</a>
   <!--
    <div class="ui dropdown item">
     <i class="dropdown icon"></i>
