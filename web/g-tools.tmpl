@@ -1,0 +1,83 @@
+{{ PageStart  }}
+
+{{ $state := GetState  .R }}
+
+{{ bNavBar $state }}
+
+<div class="main-menu">
+    
+    <div class="ui grid">
+        
+        <div class="four wide column">
+             <div class="ui vertical menu">
+              <a class="item">
+                  Youtube Keyword tool
+              </a>
+              <a class="item">
+                  Instagram Growth tool
+              </a>
+              <a class=" teal item">
+                Find Influencer
+                <div class="ui teal left pointing label">NEW</div>
+              </a>
+              <a class="active item">
+                Bulk Email Sender
+              </a>
+              <a class="item">
+                  Email analytics
+              </a>
+
+              <!-- <div class="item">
+                <div class="ui transparent icon input">
+                  <input type="text" placeholder="Search...">
+                  <i class="search icon"></i>
+                </div>
+              </div> -->
+            </div>
+        </div>
+        <div class="twelve wide column">
+            
+            <div class="ui attached message">
+                  <div class="header">
+                    Welcome to the Bulk Email Sender
+                  </div>
+                  <p>Fill out the form below to start a new campaign</p>
+                </div>
+                <form method="POST" class="ui form attached fluid segment">
+                  <div class="two fields">
+                    <div class="field">
+                      <label>Subject</label>
+                      <input placeholder="First Name" type="text">
+                    </div>
+                    <div class="field">
+                      <label>Contact List</label>
+                      <input type="file">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label>Email Template</label>
+                    <input type="file">
+                  </div>
+                  <div class="field">
+                    <label>Password</label>
+                    <input type="password">
+                  </div>
+                  <div class="inline field">
+                    <div class="ui checkbox">
+                      <input type="checkbox" id="terms">
+                      <label for="terms">I agree to the terms and conditions</label>
+                    </div>
+                  </div>
+                  <div class="ui blue submit button">Send</div>
+                </form>
+                <div class="ui bottom attached warning message">
+                  <i class="icon help"></i>
+                  *Free accounts are limited to 500 emails per month.
+             </div>
+        </div>
+        
+    </div>
+    
+</div>
+
+{{ PageEnd }}

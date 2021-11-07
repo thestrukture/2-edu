@@ -1,0 +1,42 @@
+{{ PageStart }}
+
+{{ $state := GetState .R }}
+
+{{ bNavBar $state }}
+
+<div class="main-menu">
+    <div class="ui grid">
+        
+        <div class="six wide column">
+            <div class="ui vertical menu">
+              <a class="active teal item">
+                Trending
+                <div class="ui teal left pointing label">5</div>
+              </a>
+              <a class="item">
+                Education
+                <div class="ui label">51</div>
+              </a>
+              <a class="item">
+                Trading
+                <div class="ui label">1</div>
+              </a>
+              <div class="item">
+                <div class="ui transparent icon input">
+                  <input type="text" placeholder="Search...">
+                  <i class="search icon"></i>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="ten wide column">
+            <div class="ui link cards">
+                {{ Card }}
+                {{ Card }}
+                {{ Card }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ PageEnd }}
